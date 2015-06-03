@@ -1,0 +1,8 @@
+kubectl resize rc smpl --replicas=2
+
+
+docker stop <smpl container>
+
+kubectl stop pod <smpl pod>
+
+
