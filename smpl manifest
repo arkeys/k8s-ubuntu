@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1beta3",
+   "metadata":{
+      "name":"smpl",
+      "labels":{
+         "name":"smpl"
+      }
+   },
+   "spec":{
+      "replicas":1,
+      "selector":{
+         "name":"smpl"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "name":"smpl"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"smpl",
+                  "image":"arkeys/smplsvc:pass",
+                  "ports":[
+                     {
+                        "containerPort":6379,
+                        "protocol":"TCP"
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
