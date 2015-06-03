@@ -1,6 +1,6 @@
 kubectl expose rc smpl --port=80
 
-kubectl resize rc smpl --replicas=2
+kubectl resize rc smpl --replicas=6
 
 
 docker stop <smpl container>
