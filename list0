@@ -1,0 +1,39 @@
+https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/ubuntu.md
+
+
+
+Ubuntu 14.04 LTS
+
+# update and extras
+as root:
+apt-get update
+apt-get install -y vim tree htop git curl wget
+
+# ssh keys
+cd ~/.ssh
+ssh-keygen -t rsa
+
+cp .pub > authorized_keys
+
+test it out
+
+# install latest docker
+wget -qO- https://get.docker.com/ | sh
+usermod -aG docker pilot
+
+# get k8s
+git clone https://github.com/GoogleCloudPlatform/kubernetes.git
+cd kubernetes/cluster/ubuntu
+./build.sh
+
+
+# modify kubernetes cluster/ubuntu/config-default.sh
+
+KUBERNETES_PROVIDER=ubuntu ./kube-up.sh
+
+reboot
+
+
+# addons
+
+KUBERNETES_PROVIDER=ubuntu ./deployAddons.sh
