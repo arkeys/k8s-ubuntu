@@ -1,3 +1,5 @@
+kubectl expose rc smpl --port=80
+
 kubectl resize rc smpl --replicas=2
 
 
